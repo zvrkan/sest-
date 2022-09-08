@@ -1,0 +1,17 @@
+<?php
+
+//Napišite program koji od korisnika učitava 5 brojeva i upisuje ih u datoteku, svaki u svoj red.
+
+$putanja = "C:/xampp/htdocs/Ispitni_I456/Ishod6_Min_brojevi.txt";
+$fp = fopen($putanja, "w+");
+
+for($i = 1; $i <= 5; $i++)
+{
+    $broj = readline("Upisi broj " . $i . ": ");
+
+    fwrite($fp, $broj . "\n");
+}
+
+fclose($fp);
+
+?>
