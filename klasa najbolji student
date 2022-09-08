@@ -1,0 +1,66 @@
+<?php
+
+// primjer01.php
+
+class Student
+{
+    var $ime;
+    var $prezime;
+    var $ocjene = array();
+}
+
+$lista_studenata = array();
+
+$c = 1;
+
+while(true)
+{
+    $student1 = new Student();
+
+    $student1->ime = readline("(".$c.") Ime: ");
+    $student1->prezime = readline("(".$c.") Prezime: ");
+    
+    $student1->ocjene[] = readline("(".$c.") Predmet1: ");
+    $student1->ocjene[] = readline("(".$c.") Predmet2: ");
+    $student1->ocjene[] = readline("(".$c.") Predmet3: ");
+    
+    $lista_studenata[] = $student1;
+
+    $c++;
+
+    $check = readline("Da li zelite unijeti jos jedan podatak? (d/n): ");
+
+    if($check == "n" || $check == "N")
+    {
+        break;
+    }
+}
+
+$student_najbolji = new Student();
+$najbolji_prosjek = 0;
+
+foreach($lista_studenata as $key => $student)
+{
+    $prosjek = 0;
+    $zbroj_ocjena = 0;
+    $broj_ocjena = 0;
+
+    foreach($student->ocjene as $k => $ocjena)
+    {
+        $zbroj_ocjena += $ocjena; 
+        $broj_ocjena++;
+    }
+
+    $prosjek = $zbroj_ocjena / $broj_ocjena;
+
+    if($prosjek > $najbolji_prosjek)
+    {
+        $student_najbolji = $student;
+        $najbolji_prosjek = $prosjek;
+    }
+}
+
+echo "Najbolji student je: \n";
+echo $student_najbolji->ime . " " . $student_najbolji->prezime;
+
+?>
