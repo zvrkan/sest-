@@ -1,0 +1,22 @@
+<?php
+
+/*Napišite program koji od korisnika učitava 5 brojeva i upisuje ih u datoteku obrnutim 
+redoslijedom i odvojene zarezima. Iza zadnjeg broja nemojte staviti zarez.*/
+
+$fp = fopen("C:/xampp/htdocs/Vjezba14/zadatak02.txt", "w+");
+
+for($i=1; $i<=5; $i++)
+{
+    $b = readline("Upisite broj " . $i . ".: ");
+
+    fwrite($fp, $b);
+
+    if($i < 5)
+    {
+        fwrite($fp, ",");
+    }
+}
+
+fclose($fp);
+
+?>
