@@ -1,0 +1,31 @@
+rješenje;
+Markic, Marko
+Ivic, Ivo
+
+<?php
+
+class Student
+{
+    var $ime;
+    var $prezime;
+
+    function __construct($i, $p)
+    {
+        $this->ime     = $i;
+        $this->prezime = $p;
+    }
+
+    function Ispis()
+    {
+        echo $this->prezime . ", " . $this->ime;
+    }
+}
+
+$student = new Student("Marko", "Markic");
+$student2 = new Student("Ivo", "Ivic");
+
+$student->Ispis();
+echo "\n";
+$student2->Ispis();
+
+?>
