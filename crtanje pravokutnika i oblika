@@ -1,0 +1,47 @@
+* * * * 
+* * * * 
+* * * * 
+* * * * 
+* * * * * * * * * 
+* * * * * * * * * 
+* * * * * * * * * 
+
+<?php
+
+// zadatak01.php
+
+class Crtanje
+{
+    function Oblik($a, $b)
+    {
+        for($i=1; $i<=$a; $i++)
+        {
+            for($j=1; $j<=$b; $j++)
+            {
+                echo "* ";
+            }
+
+            echo "\n";
+        }
+    }
+
+    function Kvadrat($n)
+    {
+        $this->Oblik($n, $n);
+    }
+
+    function Pravokutnik($a, $b)
+    {
+        $this->Oblik($a, $b);
+    }
+}
+
+// Instanciranje u objekt
+$obj = new Crtanje();
+
+// Poziv metode
+$obj->Kvadrat(4);
+
+$obj->Pravokutnik(3, 9);
+
+?>
