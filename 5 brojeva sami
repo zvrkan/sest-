@@ -1,0 +1,23 @@
+<?php
+
+// Napravite datoteku i u nju upišite 5 cijelih brojeva, svaki u svoj red. 
+//Napišite program koji korisniku ispisuje tih 5 brojeva.
+
+$file = "C:/xampp/htdocs/Vjezba14/zadatak04.txt";
+
+$fp = fopen($file, "r");
+
+$text = fread($fp, filesize($file));
+
+$text_lines = array();
+
+$text_lines = explode("\n", $text);
+
+foreach($text_lines as $key => $val)
+{
+    $broj = (int)$val;
+
+    echo $broj . "\n";
+}
+
+?>
