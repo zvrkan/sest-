@@ -1,0 +1,41 @@
+<?php
+
+/*Tražite od korisnika da upiše podatke (ime, prezime, godina rođenja) za 5 studenata.
+Upisane podatke pospremite u formatiranu tekstualnu datoteku na sljedeći način:
+o	Ime – prvih 10 znakova (STRING)
+o	Prezime – drugih 15 znakova (STRING)
+o	Godina rođenja – zadnja 4 znaka (INT)*/
+
+class Student
+{
+    var $ime;
+    var $prezime;
+    var $god_rod;
+}
+
+$putanja = "C:/xampp/htdocs/Ispitni_I456/Ishod6_Max.txt";
+
+$fp = fopen($putanja, "w+");
+
+$lista_studenata = array();
+
+for($i = 1; $i <= 5; $i++)
+{
+    $student = new Student();
+
+    $student->ime = readline("Unesite ime " . $i . ". studenta: ");
+    $student->prezime = readline("Unesite prezime " . $i . ". studenta: ");
+    $student->god_rod = readline("Unesite godinu rodjenja " . $i . ". studenta: ");
+
+    $lista_studenata[] = $student;
+}
+
+foreach($lista_studenata as $key => $val)
+{
+    fwrite($fp, sprintf("%-10s", $val->ime));
+    fwrite($fp, sprintf("%-15s", $val->prezime));
+    fwrite($fp, sprintf("%4s", $val->god_rod));
+    fwrite($fp, "\n");
+}
+fclose($fp);
+?>
