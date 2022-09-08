@@ -1,0 +1,45 @@
+riješenje;
+200
+600
+700
+
+<?php
+
+// zadata12.php
+
+class Pravokutnik
+{
+    var $s;
+    var $v;
+
+    function __construct($a, $b)
+    {
+        $this->s = $a;
+        $this->v = $b;
+    }
+
+    function Povrsina()
+    {
+        $rez = $this->s * $this->v;
+
+        return $rez;
+    }
+}
+
+$lista_pravokutnika = array();
+
+$p1 = new Pravokutnik(10, 20);
+$p2 = new Pravokutnik(30, 20);
+$p3 = new Pravokutnik(10, 70);
+
+$lista_pravokutnika[] = $p1;
+$lista_pravokutnika[] = $p2;
+$lista_pravokutnika[] = $p3;
+
+foreach($lista_pravokutnika as $key => $obj)
+{
+    echo $obj->Povrsina();
+    echo "\n";
+}
+
+?>
