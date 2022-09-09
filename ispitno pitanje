@@ -1,0 +1,26 @@
+<?php 
+
+/*
+Napravite tekstualnu datoteku(račno) "brojeci.txt i u nju upišite n cijeli brojev, svaki u sovj red.
+Napišite program koji u novu tekstualnu datoteku 
+"neparni.txt upisju sve naparne brojeve iz prve datoteke.
+*/
+
+$filename = 'C:\xampp\htdocs\semestar1\ISHOD6_test\brojevi.txt';
+$fp = fopen($filename, "r");
+$data = file($filename);
+
+$filename2 = 'C:\xampp\htdocs\semestar1\ISHOD6_test\neparni.txt';
+$fp2 = fopen($filename2, "w");
+
+foreach($data as $broj)
+{
+    if($broj % 2 == 1)
+    {
+        fwrite($fp2, $broj);
+    }
+}
+
+fclose($fp);
+
+?>
