@@ -1,0 +1,46 @@
+<?php 
+
+/*
+Napravite tekstuanlu datoteku "pravokutnik.txt"  
+i u svaki redak upišite po 2 cijela borja odvojeno razmakom 
+(redak neka bude proizvoljna količina).
+U svakom retku prvi broj označava širinu, a drugi visinu pravkutnika.
+Pripreme strukturu Pravokutnika te učitelja iz datotoeke podatake 
+i napravite onolio objekta kolikoima redaka u datoteci(svaki je jedna objekt).
+Ispišite stranice onih pravokutnika koji su kvadrati.
+*/
+
+class Pravokutnik
+{
+    public $sirina;
+    public $visina;
+}
+
+$filename = 'C:\xampp\htdocs\semestar1\ISHOD6_test\pravokutnik.tx';
+$fp = fopen($filename, "r");
+$data = file($filename);
+
+$lista = array();
+
+for($i=0;$i<count($data);$i=$i+2)
+{
+    $pravokutik = new Pravokutnik();
+
+    $pravokutik->sirina = $data[$i];
+    $pravokutik->visina = $data[$i+1];
+
+    array_push($lista,$pravokutik);
+}
+
+foreach($lista as $pravokutik2)
+{
+    if($pravokutik2->sirina == $pravokutik2->visina)
+    {
+        echo $pravokutik2->sirina . $pravokutik2->visina;
+    }
+    
+}
+
+fclose($fp);
+
+?>
